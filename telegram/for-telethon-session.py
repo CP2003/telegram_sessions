@@ -2,6 +2,7 @@ try:
     from telethon import TelegramClient
     from telethon.sessions import StringSession 
     import asyncio
+    import sys
 except Exception as e:
     print(e)
     print('\nInstall pyrogram: pip install Telethon')
@@ -21,6 +22,8 @@ async def starting_generator():
         message = f"Here is Your session string \n\n ```{session}```"
         await client.send_message('me', message)
         print("Done , Session string has been sent to your saved message. Now you can Close this")
+        await asyncio.sleep(5)
+        sys.exit()
         
 
 async def main():
