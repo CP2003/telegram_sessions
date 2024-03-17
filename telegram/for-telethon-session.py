@@ -22,7 +22,7 @@ async def starting_generator():
         message = f"Here is Your session string \n\n ```{session}```"
         await client.send_message('me', message)
         print("Done , Session string has been sent to your saved message. Now you can Close this")
-        await asyncio.sleep(5)
+        await client.disconnect()
         sys.exit()
         
 
