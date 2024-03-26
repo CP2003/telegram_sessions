@@ -1,12 +1,16 @@
+import os
+import sys
+import asyncio
+
 try:
     from telethon import TelegramClient
     from telethon.sessions import StringSession 
-    import asyncio
-    import sys
 except Exception as e:
-    print(e)
-    print('\nInstall pyrogram: pip install Telethon')
-    exit(1)
+    print("Intalling telethon")
+    os.system("pip install Telethon")
+    from telethon import TelegramClient
+    from telethon.sessions import StringSession 
+
     
 
 print('Loading telethon session generator...')
@@ -23,7 +27,7 @@ async def starting_generator():
         await client.send_message('me', message)
         print("Done , Session string has been sent to your saved message. Now you can Close this")
         await client.disconnect()
-        sys.exit()
+        sys.exit(1)
         
 
 async def main():
