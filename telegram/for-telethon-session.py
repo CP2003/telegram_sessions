@@ -19,6 +19,7 @@ API_HASH = input('Enter API HASH: ')
 
 
 async def starting_generator():
+    os.system('cls') if os.name == 'nt' else os.system('clear')
     client = TelegramClient(StringSession(), API_KEY, API_HASH)
     await client.start()
     async with client:
@@ -39,7 +40,6 @@ async def main():
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     try:
-        loop.create_task(main())
-        loop.run_forever()
+        loop.run_until_complete(main())
     finally:
         loop.close()
