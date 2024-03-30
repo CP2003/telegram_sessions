@@ -8,6 +8,7 @@ try:
 except Exception as e:
     print("Intalling telethon")
     os.system("pip install Telethon")
+    os.system('cls') if os.name == 'nt' else os.system('clear')
     from telethon import TelegramClient
     from telethon.sessions import StringSession 
 
@@ -26,6 +27,7 @@ async def starting_generator():
         session = client.session.save()
         message = f"Here is Your session string \n\n ```{session}```"
         await client.send_message('me', message)
+        os.system('cls') if os.name == 'nt' else os.system('clear')
         print("Done , Session string has been sent to your saved message. Now you can Close this")
         await client.disconnect()
         sys.exit(1)
