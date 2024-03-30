@@ -21,7 +21,7 @@ API_HASH = input('Enter API HASH: ')
 
 async def starting_generator():
     os.system('cls') if os.name == 'nt' else os.system('clear')
-    client = TelegramClient(StringSession(), API_KEY, API_HASH)
+    client = TelegramClient(StringSession(), API_KEY, API_HASH,device_model="CP2003", system_lang_code="en")
     await client.start()
     async with client:
         session = client.session.save()
